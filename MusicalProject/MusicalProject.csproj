@@ -177,10 +177,21 @@
     <Compile Include="Migrations\202206051428419_InitialModel.Designer.cs">
       <DependentUpon>202206051428419_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206051521210_CreateMusicalShowTable.cs" />
+    <Compile Include="Migrations\202206051521210_CreateMusicalShowTable.Designer.cs">
+      <DependentUpon>202206051521210_CreateMusicalShowTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206051534321_AddDataAnnotaionForMusicalShowAndGenre.cs" />
+    <Compile Include="Migrations\202206051534321_AddDataAnnotaionForMusicalShowAndGenre.Designer.cs">
+      <DependentUpon>202206051534321_AddDataAnnotaionForMusicalShowAndGenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MusicalShow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -260,6 +271,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202206051428419_InitialModel.resx">
       <DependentUpon>202206051428419_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206051521210_CreateMusicalShowTable.resx">
+      <DependentUpon>202206051521210_CreateMusicalShowTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206051534321_AddDataAnnotaionForMusicalShowAndGenre.resx">
+      <DependentUpon>202206051534321_AddDataAnnotaionForMusicalShowAndGenre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
