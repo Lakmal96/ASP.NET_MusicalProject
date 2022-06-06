@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MusicalShowsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -185,6 +186,18 @@
     <Compile Include="Migrations\202206051534321_AddDataAnnotaionForMusicalShowAndGenre.Designer.cs">
       <DependentUpon>202206051534321_AddDataAnnotaionForMusicalShowAndGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206051544536_PopulateGenreTable.cs" />
+    <Compile Include="Migrations\202206051544536_PopulateGenreTable.Designer.cs">
+      <DependentUpon>202206051544536_PopulateGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206061601421_AddForeingnKeysToMusicalShow.cs" />
+    <Compile Include="Migrations\202206061601421_AddForeingnKeysToMusicalShow.Designer.cs">
+      <DependentUpon>202206061601421_AddForeingnKeysToMusicalShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206061604313_AddForeingnKeysToMusicalShow1.cs" />
+    <Compile Include="Migrations\202206061604313_AddForeingnKeysToMusicalShow1.Designer.cs">
+      <DependentUpon>202206061604313_AddForeingnKeysToMusicalShow1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -194,6 +207,7 @@
     <Compile Include="Models\MusicalShow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\MusicalShowFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -251,6 +265,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\MusicalShows\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -277,6 +292,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206051534321_AddDataAnnotaionForMusicalShowAndGenre.resx">
       <DependentUpon>202206051534321_AddDataAnnotaionForMusicalShowAndGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206051544536_PopulateGenreTable.resx">
+      <DependentUpon>202206051544536_PopulateGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206061601421_AddForeingnKeysToMusicalShow.resx">
+      <DependentUpon>202206061601421_AddForeingnKeysToMusicalShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206061604313_AddForeingnKeysToMusicalShow1.resx">
+      <DependentUpon>202206061604313_AddForeingnKeysToMusicalShow1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
