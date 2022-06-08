@@ -31,12 +31,19 @@ namespace MusicalProject.Controllers
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(MusicalShowFormViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Genres = _context.Genres.ToList();
+                return View("Create", viewModel);
+            }
+
             var musicalShow = new MusicalShow()
             {
                 BandId   = User.Identity.GetUserId(),
-                DateTime = viewModel.DateTime,
+                DateTime = viewModel.GetDateTime(),
                 Venue = viewModel.Venue,
                 GenreId = viewModel.Genre
             };
