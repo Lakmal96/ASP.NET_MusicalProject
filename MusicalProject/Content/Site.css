@@ -23,11 +23,17 @@ textarea {
     max-width: 280px;
 }
 
+span.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
+
 /*Bootstrap Overrides*/
 body {
      font-size: 17px;
 }
-    .navbar-inverse {
+
+.navbar-inverse {
     background-color: #ff4517;
     border-color: #ff4517;
 }
@@ -38,6 +44,14 @@ body {
 
 .navbar-inverse .navbar-brand {
     color: #fff;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #d63a13;
+}
+
+.navbar-brand {
+    font-weight: 700;
 }
 
 body {
@@ -69,3 +83,4 @@ select,
 textarea {
     max-width: 480px;
 }
+
