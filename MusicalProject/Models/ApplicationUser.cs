@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -13,6 +15,15 @@ namespace MusicalProject.Models
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
+
+        public ICollection<Following> Followers { get; set; }
+        public ICollection<Following> Subjects { get; set; }
+
+        public ApplicationUser()
+        {
+            Followers = new Collection<Following>();
+            Subjects = new Collection<Following>();
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

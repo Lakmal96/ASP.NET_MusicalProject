@@ -84,3 +84,55 @@ textarea {
     max-width: 480px;
 }
 
+/* Home page styles */
+.shows {
+    list-style: none;
+}
+
+.shows > li  {
+    position: relative;
+    margin: 30px;
+}
+
+.shows > li .details {
+    position: absolute;
+    top: 10px;
+    left: 140px;
+}
+
+.shows > li .details .band {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.shows > li .details .genre {
+    font-size: 16px;
+}
+
+    .shows > li .date {
+        background-color: #ff4517;
+        width: 80px;
+        text-align: center;
+        -ms-border-radius: 5px;
+        box-shadow: 3px 3px #9c9cbd;
+        border-radius: 5px;
+    }
+
+    .shows > li .date .day {
+        color: #808080;
+        font-size: 32px;
+        font-weight: bold;
+        background-color: #f0f0f5;
+    }
+
+.shows > li .date  .month {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn-action {
+    margin-top: 10px;
+}
+

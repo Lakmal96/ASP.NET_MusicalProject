@@ -21,6 +21,7 @@ namespace MusicalProject.Controllers
         {
             var upcomingShows = _context.MusicalShows
                 .Include(s => s.Band)
+                .Include(s => s.Genre)
                 .Where(s => s.DateTime > DateTime.Now);
 
             return View(upcomingShows);

@@ -4,9 +4,42 @@
     ViewBag.Title = "Home Page";
 }
 
-<ul>
+<ul class="shows">
     @foreach (var show in Model)
     {
-        <li>@show.DateTime - @show.Band.Name</li>
+        <li>
+            <div class="date">
+                <div class="day">@show.DateTime.ToString("d ")</div>
+                <div class="month">@show.DateTime.ToString("MMM")</div>
+            </div>
+            <div class="details">
+                <div class="band">@show.Band.Name</div>
+                <div class="genre">@show.Genre.Name</div>
+
+            </div>
+            <div class="btn-action">
+                <button class="btn btn-default js-attend" data-show-id=@show.Id>Attending?</button>
+                <button class="btn btn-default">Follow?</button>
+            </div>
+        </li>
+        <hr />
     }
 </ul>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-attend").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/attendance", { MusicalShowId: button.attr('data-show-id') })
+                    .done(function () {
+                        button.removeClass("btn-default").addClass("btn-primary").text("Attending");
+                    })
+                    .fail(function () {
+                        alert("Something went wrong!");
+                    });
+            });
+        });
+    </script>
+}
