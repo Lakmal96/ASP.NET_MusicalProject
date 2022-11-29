@@ -1,11 +1,11 @@
-﻿@model IEnumerable<MusicalProject.Models.MusicalShow>
+﻿@model MusicalProject.ViewModels.MusicalShowViewModel
 
 @{
     ViewBag.Title = "Home Page";
 }
 
 <ul class="shows">
-    @foreach (var show in Model)
+    @foreach (var show in Model.UpcomingShows)
     {
         <li>
             <div class="date">
@@ -18,8 +18,11 @@
 
             </div>
             <div class="btn-action">
-                <button class="btn btn-default js-attend" data-show-id=@show.Id>Attending?</button>
-                <button class="btn btn-default">Follow?</button>
+                @if (Model.ShowActions)
+                {<button class="btn btn-default js-attend" data-show-id=@show.Id>Attending?</button>
+                    <button class="btn btn-default js-follow" data-subject-id=@show.BandId>Follow?</button>
+                }
+
             </div>
         </li>
         <hr />
@@ -35,6 +38,17 @@
                 $.post("/api/attendance", { MusicalShowId: button.attr('data-show-id') })
                     .done(function () {
                         button.removeClass("btn-default").addClass("btn-primary").text("Attending");
+                    })
+                    .fail(function () {
+                        alert("Something went wrong!");
+                    });
+            });
+
+            $(".js-follow").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/followings", { SubjectId: button.attr('data-subject-id') })
+                    .done(function () {
+                        button.removeClass("btn-default").addClass("btn-info").text("Following");
                     })
                     .fail(function () {
                         alert("Something went wrong!");

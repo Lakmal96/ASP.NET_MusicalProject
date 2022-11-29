@@ -1,0 +1,33 @@
+﻿@model MusicalProject.ViewModels.MusicalShowViewModel
+
+@{
+    ViewBag.Title = "Going";
+}
+
+<h2>Shows I'm attending</h2>
+<ul class="shows">
+    @foreach (var show in Model.UpcomingShows)
+    {
+        <li>
+            <div class="date">
+                <div class="day">@show.DateTime.ToString("d ")</div>
+                <div class="month">@show.DateTime.ToString("MMM")</div>
+            </div>
+            <div class="details">
+                <div class="band">@show.Band.Name</div>
+                <div class="genre">@show.Genre.Name</div>
+
+            </div>
+            <div class="btn-action">
+                @if (Model.ShowActions)
+                {<button class="btn btn-default js-attend" data-show-id=@show.Id>Attending?</button>
+                    <button class="btn btn-default js-follow" data-subject-id=@show.BandId>Follow?</button>
+                }
+
+            </div>
+        </li>
+        <hr />
+    }
+</ul>
+
+

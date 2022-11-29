@@ -243,6 +243,7 @@
     <Compile Include="ViewModels\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\ForgotViewModel.cs" />
     <Compile Include="ViewModels\FutureDateValidation.cs" />
+    <Compile Include="ViewModels\MusicalShowViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MusicalShowFormViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
@@ -308,6 +309,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\MusicalShows\Create.cshtml" />
+    <Content Include="Views\MusicalShows\Going.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

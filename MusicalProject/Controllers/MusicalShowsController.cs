@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -54,5 +55,20 @@ namespace MusicalProject.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult Going()
+        {
+            var userId = User.Identity.GetUserId();
+            var shows = _context.Attendances.Where(a => a.AttendeeId == userId)
+                .Select(a => a.MusicalShow).Include(s => s.Band)
+                .Include(s => s.Genre).ToList();
+
+            var viewModel = new MusicalShowViewModel()
+            {
+                UpcomingShows = shows,
+                ShowActions = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
+        }
     }
 }

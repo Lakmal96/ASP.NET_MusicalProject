@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MusicalProject.Models;
+using MusicalProject.ViewModels;
 
 namespace MusicalProject.Controllers
 {
@@ -24,7 +25,13 @@ namespace MusicalProject.Controllers
                 .Include(s => s.Genre)
                 .Where(s => s.DateTime > DateTime.Now);
 
-            return View(upcomingShows);
+            var viewModel = new MusicalShowViewModel()
+            {
+                UpcomingShows = upcomingShows,
+                ShowActions = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult About()
