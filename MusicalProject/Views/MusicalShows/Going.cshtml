@@ -20,7 +20,8 @@
             </div>
             <div class="btn-action">
                 @if (Model.ShowActions)
-                {<button class="btn btn-default js-attend" data-show-id=@show.Id>Attending?</button>
+                {
+                    <button class="btn btn-default js-attend" data-show-id=@show.Id>Attending?</button>
                     <button class="btn btn-default js-follow" data-subject-id=@show.BandId>Follow?</button>
                 }
 

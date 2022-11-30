@@ -11,5 +11,7 @@ namespace MusicalProject.ViewModels
         public IEnumerable<MusicalShow> UpcomingShows { get; set; }
 
         public bool ShowActions { get; set; }
+
+        public ILookup<int, Attendance> Attendances { get; set; }
     }
 }

@@ -55,20 +55,36 @@ namespace MusicalProject.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize]
         public ActionResult Going()
         {
             var userId = User.Identity.GetUserId();
             var shows = _context.Attendances.Where(a => a.AttendeeId == userId)
                 .Select(a => a.MusicalShow).Include(s => s.Band)
                 .Include(s => s.Genre).ToList();
+            var attendances = _context.Attendances.Where(a => a.AttendeeId == userId)
+                .ToList().ToLookup(a => a.MusicalShowId);
 
             var viewModel = new MusicalShowViewModel()
             {
                 UpcomingShows = shows,
-                ShowActions = User.Identity.IsAuthenticated
+                ShowActions = User.Identity.IsAuthenticated,
+                Attendances = attendances
             };
 
             return View(viewModel);
         }
+
+        [Authorize]
+        public ActionResult Followings()
+        {
+            var userId = User.Identity.GetUserId();
+            var followings = _context.Followings.Where(f => f.FollowerId == userId)
+                .Select(f => f.Subject).ToList();
+            
+
+            return View(followings);
+        }
+
     }
 }

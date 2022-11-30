@@ -1,0 +1,15 @@
+﻿@model IList<MusicalProject.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Followings";
+}
+
+<h2>Followings</h2>
+
+<ul>
+    @foreach (var f in Model)
+    {
+        <li>@f.Name</li>
+    }
+
+</ul>

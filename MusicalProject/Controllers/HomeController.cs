@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MusicalProject.Models;
 using MusicalProject.ViewModels;
 
@@ -25,10 +26,15 @@ namespace MusicalProject.Controllers
                 .Include(s => s.Genre)
                 .Where(s => s.DateTime > DateTime.Now);
 
+            string userId = User.Identity.GetUserId();
+            var attendances = _context.Attendances.Where(a => a.AttendeeId == userId)
+                .ToList().ToLookup(a => a.MusicalShowId);
+
             var viewModel = new MusicalShowViewModel()
             {
                 UpcomingShows = upcomingShows,
-                ShowActions = User.Identity.IsAuthenticated
+                ShowActions = User.Identity.IsAuthenticated,
+                Attendances = attendances
             };
 
             return View(viewModel);
