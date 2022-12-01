@@ -311,6 +311,7 @@
     <Content Include="Views\MusicalShows\Create.cshtml" />
     <Content Include="Views\MusicalShows\Going.cshtml" />
     <Content Include="Views\MusicalShows\Followings.cshtml" />
+    <Content Include="Views\MusicalShows\MyShows.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

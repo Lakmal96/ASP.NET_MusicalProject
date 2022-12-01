@@ -86,5 +86,14 @@ namespace MusicalProject.Controllers
             return View(followings);
         }
 
+        [Authorize]
+        public ActionResult MyShows()
+        {
+            var userId = User.Identity.GetUserId();
+            var myShows = _context.MusicalShows
+                .Where(m => m.BandId == userId && m.DateTime > DateTime.Now).ToList();
+
+            return View(myShows);
+        }
     }
 }

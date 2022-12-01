@@ -100,6 +100,15 @@ textarea {
     left: 140px;
 }
 
+.shows > li .details .venue {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.shows > li .details .time {
+    font-size: 16px;
+}
+
 .shows > li .details .band {
     font-size: 20px;
     font-weight: bold;

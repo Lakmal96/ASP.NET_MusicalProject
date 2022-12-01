@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MusicalProject.Models.MusicalShow>
+
+@{
+    ViewBag.Title = "MyShows";
+}
+
+<h2>MyShows</h2>
+<ul class="shows">
+    @foreach (var show in Model)
+    {
+        <li>
+            <div class="date">
+                <div class="day">@show.DateTime.ToString("d ")</div>
+                <div class="month">@show.DateTime.ToString("MMM")</div>
+            </div>
+            <div class="details">
+                <div class="venue">@show.Venue</div>
+                <div class="time">@show.DateTime.ToString("t")</div>
+            </div>
+        </li>
+        <hr />
+    }
+</ul>
+
