@@ -95,5 +95,23 @@ namespace MusicalProject.Controllers
 
             return View(myShows);
         }
+
+        [Authorize]
+        public ActionResult Edit(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var show = _context.MusicalShows.Single(s => s.Id == id && s.BandId == userId);
+
+            var viewModel = new MusicalShowFormViewModel()
+            {
+                Genres = _context.Genres.ToList(),
+                Venue = show.Venue,
+                Date = show.DateTime.ToString("d MMM yyyy"),
+                Time = show.DateTime.ToString("HH:mm"),
+                Genre = show.GenreId
+            };
+
+            return View("Create", viewModel);
+        }
     }
 }

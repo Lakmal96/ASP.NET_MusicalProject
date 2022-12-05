@@ -16,6 +16,7 @@
             <div class="details">
                 <div class="venue">@show.Venue</div>
                 <div class="time">@show.DateTime.ToString("t")</div>
+                <div class="action"><a href="@Url.Action("Edit", "MusicalShows", new {id = show.Id})">Edit</a> | <a href="">Delete</a></div>
             </div>
         </li>
         <hr />
