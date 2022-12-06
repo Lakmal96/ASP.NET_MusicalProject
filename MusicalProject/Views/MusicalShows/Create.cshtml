@@ -4,10 +4,11 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Add a Show</h2>
-@using (Html.BeginForm("Create", "MusicalShows"))
+<h2>@Model.Title</h2>
+@using (Html.BeginForm(Model.Action, "MusicalShows"))
 {
     @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
     <p class="alert alert-info">All fields are <strong>required.</strong></p>
     <div class="form-group">
         @Html.LabelFor(m => m.Venue)

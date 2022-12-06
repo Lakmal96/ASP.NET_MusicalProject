@@ -9,6 +9,8 @@ namespace MusicalProject.ViewModels
 {
     public class MusicalShowFormViewModel
     {
+        public int Id { get; set; }
+
         [Required]
         public string Venue { get; set; }
 
@@ -24,6 +26,17 @@ namespace MusicalProject.ViewModels
         public byte Genre { get; set; }
 
         public IEnumerable<Genre> Genres { get; set; }
+
+        public string Title { get; set; }
+
+        public string Action
+        {
+            get
+            {
+                return Id != 0 ? "Update" : "Create";
+            }
+
+        }
 
         public DateTime GetDateTime()
         {

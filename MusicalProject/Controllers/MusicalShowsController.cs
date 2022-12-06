@@ -24,7 +24,8 @@ namespace MusicalProject.Controllers
         {
             var viewModel = new MusicalShowFormViewModel()
             {
-                Genres = _context.Genres.ToList()
+                Genres = _context.Genres.ToList(),
+                Title = "Add a Show"
             };
 
             return View(viewModel);
@@ -46,7 +47,7 @@ namespace MusicalProject.Controllers
                 BandId   = User.Identity.GetUserId(),
                 DateTime = viewModel.GetDateTime(),
                 Venue = viewModel.Venue,
-                GenreId = viewModel.Genre
+                GenreId = viewModel.Genre,
             };
 
             _context.MusicalShows.Add(musicalShow);
@@ -104,14 +105,40 @@ namespace MusicalProject.Controllers
 
             var viewModel = new MusicalShowFormViewModel()
             {
+                Id = show.Id,
                 Genres = _context.Genres.ToList(),
                 Venue = show.Venue,
                 Date = show.DateTime.ToString("d MMM yyyy"),
                 Time = show.DateTime.ToString("HH:mm"),
-                Genre = show.GenreId
+                Genre = show.GenreId,
+                Title = "Edit a Show"
             };
 
             return View("Create", viewModel);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update(MusicalShowFormViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Genres = _context.Genres.ToList();
+                return View("Create", viewModel);
+            }
+
+            var userId = User.Identity.GetUserId();
+            var showDb = _context.MusicalShows.Single(s => s.Id == viewModel.Id && s.BandId == userId);
+            
+            showDb.DateTime = viewModel.GetDateTime();
+            showDb.Venue = viewModel.Venue;
+            showDb.GenreId = viewModel.Genre;
+            
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
