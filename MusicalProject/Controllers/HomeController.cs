@@ -24,7 +24,7 @@ namespace MusicalProject.Controllers
             var upcomingShows = _context.MusicalShows
                 .Include(s => s.Band)
                 .Include(s => s.Genre)
-                .Where(s => s.DateTime > DateTime.Now);
+                .Where(s => s.DateTime > DateTime.Now && !s.IsCancelled);
 
             string userId = User.Identity.GetUserId();
             var attendances = _context.Attendances.Where(a => a.AttendeeId == userId)

@@ -92,7 +92,7 @@ namespace MusicalProject.Controllers
         {
             var userId = User.Identity.GetUserId();
             var myShows = _context.MusicalShows
-                .Where(m => m.BandId == userId && m.DateTime > DateTime.Now).ToList();
+                .Where(m => m.BandId == userId && m.DateTime > DateTime.Now && !m.IsCancelled).ToList();
 
             return View(myShows);
         }

@@ -18,14 +18,21 @@
                 <div class="genre">@show.Genre.Name</div>
 
             </div>
-            <div class="btn-action">
-                @if (Model.ShowActions)
-                {
-                    <button class="btn btn-default js-attend" data-show-id=@show.Id>Attending?</button>
-                    <button class="btn btn-default js-follow" data-subject-id=@show.BandId>Follow?</button>
-                }
+            @if (show.IsCancelled)
+            {
+                <h3><span class="label label-danger">Canceled!</span></h3>
+            }
+            else
+            {
+                <div class="btn-action">
+                    @if (Model.ShowActions)
+                    {
+                        <button class="btn btn-default js-attend" data-show-id=@show.Id>Attending?</button>
+                        <button class="btn btn-default js-follow" data-subject-id=@show.BandId>Follow?</button>
+                    }
 
-            </div>
+                </div>
+            }
         </li>
         <hr />
     }

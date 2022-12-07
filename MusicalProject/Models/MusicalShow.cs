@@ -10,6 +10,8 @@ namespace MusicalProject.Models
     {
         public int Id { get; set; }
 
+        public bool IsCancelled { get; set; }
+
         public ApplicationUser Band { get; set; }
 
         [Required]

@@ -182,6 +182,7 @@
     <Compile Include="Controllers\FollowingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MusicalShowCancelController.cs" />
     <Compile Include="Controllers\MusicalShowsController.cs" />
     <Compile Include="Dtos\AttendanceDto.cs" />
     <Compile Include="Dtos\FollowingDto.cs" />
@@ -227,6 +228,10 @@
     <Compile Include="Migrations\202206110606330_AddFollowingModel.cs" />
     <Compile Include="Migrations\202206110606330_AddFollowingModel.Designer.cs">
       <DependentUpon>202206110606330_AddFollowingModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212060816403_AddIsCancelledToMusicalShowModel.cs" />
+    <Compile Include="Migrations\202212060816403_AddIsCancelledToMusicalShowModel.Designer.cs">
+      <DependentUpon>202212060816403_AddIsCancelledToMusicalShowModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -359,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206110606330_AddFollowingModel.resx">
       <DependentUpon>202206110606330_AddFollowingModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212060816403_AddIsCancelledToMusicalShowModel.resx">
+      <DependentUpon>202212060816403_AddIsCancelledToMusicalShowModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -16,10 +16,33 @@
             <div class="details">
                 <div class="venue">@show.Venue</div>
                 <div class="time">@show.DateTime.ToString("t")</div>
-                <div class="action"><a href="@Url.Action("Edit", "MusicalShows", new {id = show.Id})">Edit</a> | <a href="">Delete</a></div>
+                <div class="action">
+                    <a href="@Url.Action("Edit", "MusicalShows", new {id = show.Id})">Edit</a>
+                    | <a href="" class="jsCancelShow" dataShowId="@show.Id">Cancel</a>
+                </div>
             </div>
         </li>
-        <hr />
     }
 </ul>
 
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(".jsCancelShow").click(function () {
+                var element = $(this);
+                var elementId = element.attr("dataShowId");
+                if (confirm("Are you sure you want to cancel the show?")) {
+                    $.ajax({
+                        url: "/api/musicalshowcancel/" + elementId,
+                        method: "DELETE",
+                        async: false
+                    }).done(function () {
+                        element.remove();
+                    }).fail(function() {
+                        alert("Something went wrong!")
+                    });
+                }
+            });
+        });
+    </script>
+}
